@@ -2,7 +2,7 @@ class AssessmentPage
 
 	class AssessmentValue
 
-		def initialize  name="Pito Salas"
+		def initialize  name="Random User"
 			@name = name
 		end
 
@@ -21,11 +21,24 @@ class AssessmentPage
 		end
 	end
 
+	def initialize principal, team
+		@principal = principal
+		@team_name = team
+	end
+
+	def team_unspecified?
+		@team_name.nil?
+	end
+
+	def team_name
+		@team.name unless team_unspecified
+	end
+
 	def peers
 		[AssessmentValue.new, AssessmentValue.new]
 	end
 
 	def principal
-		AssessmentValue.new("Principal")
+		AssessmentValue.new(@principal)
 	end
 end

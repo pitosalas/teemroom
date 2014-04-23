@@ -46,3 +46,5 @@ group :test do
   gem "minitest"
 end
 
+gem 'omniauth-twitter'
+
