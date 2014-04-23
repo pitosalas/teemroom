@@ -1,0 +1,8 @@
+.form-control.input-xs {
+	height: 22px;
+	font-size: smaller;
+}
+
+.assessment-dropdown select {
+	margin-bottom: 8px;
+}
