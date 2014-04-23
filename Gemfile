@@ -48,3 +48,6 @@ end
 
 gem 'omniauth-twitter'
 
+gem 'rails_admin'
+
+
