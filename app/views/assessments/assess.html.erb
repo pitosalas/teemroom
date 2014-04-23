@@ -31,12 +31,7 @@
                   	<%= render "self_assessment_blurb" %>
                   </p>
                 </div>
-                <span>Peer 0</span>
-                <%= select_tag(:self_assessment, 
-                      options_for_select(
-                        [['Awesome', "A"], 
-                         ['Sucky', "F"]
-                        ]), class: "input-xs") %>
+                <%= render partial: "assessment_dropdown", locals: { assess: @assessment_page.principal } %>
             </div>
           </div>
         </div>
@@ -49,10 +44,9 @@
                     <%= render "peer_assessments_blurb" %>
                   </p>
                 </div>
-                <%= render "assessment_dropdown" %>
-                <%= render "assessment_dropdown" %>
-                <%= render "assessment_dropdown" %>
-                <%= render "assessment_dropdown" %>
+                <% @assessment_page.peers.each do |peer| %>
+                  <%= render partial: "assessment_dropdown", locals: { assess: peer } %>
+                <% end %>
               </div>
             </div>
           </div>

@@ -1,8 +1,4 @@
 <div class="assessment-dropdown">
-	<span>Peer 0</span>
-	<%= select_tag(:self_assessment, 
-	      options_for_select(
-	        [['Awesome', "A"], 
-	         ['Sucky', "F"]
-	        ]), class: "input-xs") %>
+	<span><%= assess.name %>: </span>
+	<%= select_tag(assess.id, options_for_select(assess.options), class: "input-xs") %>
 </div>
