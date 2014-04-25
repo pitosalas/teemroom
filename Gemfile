@@ -27,3 +27,6 @@ gem 'pg', group: :production
 
 ruby "2.1.1"
 
+gem 'rails_admin'
+
+
