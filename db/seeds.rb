@@ -6,8 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Team.create(name: "RTM")
-Team.create(name: "What's going on")
-Team.create(name: "Trade Advisor")
-Team.create(name: "Teachback")
-Team.create(name: "Vaperrater")
+if !Rails.env.production?
+puts "Loading Seed Data because we are in #{Rails.env} mode."
+  Team.create(name: "RTM")
+  Team.create(name: "What's going on")
+  Team.create(name: "Trade Advisor")
+  Team.create(name: "Teachback")
+  Team.create(name: "Vaperrater")
+
+  User.create(name: "Sharat", provider: "Test")
+  User.create(name: "Samir", provider: "Test")
+  User.create(name: "Jacob", provider: "Test")
+  User.create(name: "David", provider: "Test")
+
+end
