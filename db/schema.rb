@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140423202345) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "nickname"
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"

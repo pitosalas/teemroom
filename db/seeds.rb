@@ -14,9 +14,9 @@ puts "Loading Seed Data because we are in #{Rails.env} mode."
   Team.create(name: "Teachback")
   Team.create(name: "Vaperrater")
 
-  User.create(name: "Sharat", provider: "Test")
-  User.create(name: "Samir", provider: "Test")
-  User.create(name: "Jacob", provider: "Test")
-  User.create(name: "David", provider: "Test")
+  User.create(name: "Pito Salas", nickname: "pito", provider: "Test")
+  User.create(name: "Chris Salas", nickname: "chris", provider: "Test")
+  User.create(name: "Daniel Salas", nickname: "daniel", provider: "Test")
+  User.create(name: "Larry Salas", nickname: "larry", provider: "Test")
 
 end

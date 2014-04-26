@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'assess' => 'assessments#assess'
   post 'submit_assessment' => "assessments#submit_assessments"
   get 'auth/:provider/callback', to: 'sessions#create'
+  get 'test/:nickname', to: 'sessions#test_login'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

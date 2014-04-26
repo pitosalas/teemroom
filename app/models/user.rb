@@ -5,11 +5,17 @@ class User < ActiveRecord::Base
 		where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
 	end
 
+	def self.from_fakeuser(nickname)
+		auth = { "provider" => "Test", "uid" => 0, "info" => {"nickname" => nickname, "name" => nickname }}
+		where(nickname: nickname).first || create_from_omniauth(auth)
+	end
+
 	def self.create_from_omniauth(auth)
 		create! do |user|
 			user.provider = auth["provider"]
 			user.uid = auth["uid"]
 			user.name = auth["info"]["name"]
+			user.nickname = auth["info"]["nickname"]
 		end
 	end
 end
