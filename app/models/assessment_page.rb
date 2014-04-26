@@ -2,43 +2,51 @@ class AssessmentPage
 
 	class AssessmentValue
 
-		def initialize  name="Random User"
-			@name = name
+		def initialize user
+			@user = user
 		end
 
 		def name
-			@name
+			@user.name
 		end
 
 		def id
-			("nm"+name).parameterize
+			"user-#{@user.id}"
 		end
 
 		def options
-	    [['Awesome', "A"], 
-	     ['Sucky', "F"]
+	    [['Top contributor', "5"],
+	     ['Great contributor', "4"],
+	     ["Helpful", 4],
+	     ["Didn't help, didn't hurt", "3"],
+	     ['Net negative', "2"],
+	     ['Disruptive', "1"]
 	    ]
 		end
 	end
 
 	def initialize principal, team
 		@principal = principal
-		@team_name = team
-	end
-
-	def team_unspecified?
-		@team_name.nil?
-	end
-
-	def team_name
-		@team.name unless team_unspecified
-	end
-
-	def peers
-		[AssessmentValue.new, AssessmentValue.new]
+		@team = team
 	end
 
 	def principal
+		@principal
+	end
+
+	def team_unspecified?
+		@team.nil?
+	end
+
+	def team_name
+		@principal.team.name unless team_unspecified?
+	end
+
+	def peers_av
+		@team.map { |m| AssessmentValue.new (m)}
+	end
+
+	def principal_av
 		AssessmentValue.new(@principal)
 	end
 end

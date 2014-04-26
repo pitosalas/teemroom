@@ -1,4 +1,4 @@
 <div class="assessment-dropdown">
 	<span><%= assess.name %>: </span>
-	<%= select_tag(assess.id, options_for_select(assess.options), class: "input-xs") %>
+	<%= select_tag(assess.id, options_for_select(assess.options), prompt: "Select something", class: "input-xs") %>
 </div>

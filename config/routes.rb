@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  mount RailsAdmin::Engine => '/xyzzy', as: 'rails_admin'
   
   root 'sessions#home'
-  get 'assess' => 'assessments#assess'
-  post 'submit_assessment' => "assessments#submit_assessments"
+  get 'assess/:user' => 'assessments#form', as: :assess
+  post 'submit/:user' => 'assessments#submit', as: :submit_assess
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'test/:nickname', to: 'sessions#test_login'
 
