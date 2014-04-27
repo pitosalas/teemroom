@@ -1,7 +1,11 @@
 require 'test_helper'
+require 'pry'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  describe "Null Test" do
+    it "works" do
+      1.must_equal 1
+    end
+  end
 end

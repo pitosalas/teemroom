@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+a0:
+  assessor_id: 0
+  assessee_id: 0
+
+a1:
+  assessor_id: 2
+  assessee_id: 3

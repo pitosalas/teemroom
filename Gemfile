@@ -14,11 +14,16 @@ gem 'spring',             group: :development # Spring speeds up development
 
 # Mine
 
-gem 'jazz_hands', group: :development	  # Bring in Pry, AwesomePrint, Hirb and friendsgem 'pry'
+group :development, :test do
+  gem 'guard-test'
+  gem 'jazz_hands'                       # Bring in Pry, AwesomePrint, Hirb and friendsgem 'pry'
+end
+
 gem 'better_errors'                     # Better Errors replaces the standard Rails error page with a much better and more useful error page. It is also usable outside of Rails in any Rack app as Rack middleware.
 
 group :test do
-  gem "minitest"
+  gem 'minitest-rails'
+  gem 'faker'
 end
 
 gem 'omniauth-twitter'
@@ -26,7 +31,6 @@ gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 
 ruby "2.1.1"
-
 gem 'rails_admin'
 
 

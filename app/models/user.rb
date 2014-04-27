@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   belongs_to :team
 
+  has_many :given_assessments, class_name: "Assessment", foreign_key: "assessor_id"
+  has_many :received_assessments, class_name: "Assessment", foreign_key: "assessee_id"
+
 	def self.from_omniauth(auth)
 		where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
 	end
