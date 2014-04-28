@@ -1,7 +1,3 @@
 <div class="container">
-  <% if @assessment_page.team_unspecified? %>
-    <%= render "unassigned_team" %>
-  <% else %>
     <%= render partial: "assessment_form" %>
-  <% end %>
 </div>
