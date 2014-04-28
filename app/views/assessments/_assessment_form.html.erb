@@ -1,6 +1,6 @@
  <%= form_tag(submit_assess_path(@assessment_page.principal.id), method: "post", role:"form", class: "form") do %>
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-8 col-sm-offset-1">
         <div class="page-header">
           <h2>Self and peer Assessments</h2>
         </div>
@@ -53,10 +53,9 @@
               </div>
             </div>
           </div>
-        </div>
+        <%= submit_tag("Save", class: "btn btn-default") %>
+        <%= submit_tag("Done", class: "btn btn-default") %>
+        <%= submit_tag("Cancel", class: "btn btn-default") %>
       </div>
-    <%= submit_tag("Save", class: "btn btn-default") %>
-    <%= submit_tag("Done", class: "btn btn-default") %>
-    <%= submit_tag("Cancel", class: "btn btn-default") %>
-
-  <% end %>
+    </div>
+ <% end %>
