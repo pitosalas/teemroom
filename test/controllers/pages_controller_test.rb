@@ -1,14 +1,8 @@
 require "test_helper"
 
 describe PagesController do
-  it "should get not_ready_yet" do
-    get :not_ready_yet
+  it "should return a not ready yet page" do
+    get(:show, {'page_name' => "cancel"})
     assert_response :success
   end
-
-  it "should get thank_you" do
-    get :thank_you
-    assert_response :success
-  end
-
 end
