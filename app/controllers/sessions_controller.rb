@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
   def test_login
     user = User.from_fakeuser(params[:nickname])
     set_logged_in_userid user.id
+    user.team_id = 1
+    user.save!
   end
 
   def set_logged_in_userid id
