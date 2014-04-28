@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'submit/:user' => 'assessments#submit', as: :submit_assess
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'test/:nickname', to: 'sessions#test_login'
+  get 'pages/:page_name' => 'pages#show', as: :pages
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

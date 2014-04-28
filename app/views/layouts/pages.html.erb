@@ -1,0 +1,20 @@
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#my-modal').modal();
+    });
+  </script>
+<% end %>
+<% content_for :content do %>
+  <div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <%= yield %>
+        <div class="modal-footer">
+          brought to you by "Make my team"
+      </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%=render template: "layouts/application" %>
