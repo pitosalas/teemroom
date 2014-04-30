@@ -28,6 +28,7 @@ group :test do
 end
 
 gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 
