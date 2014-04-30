@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class TeamTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  describe Team do
+    it "always has a team 1" do
+      Team.count.must_be(:>, 0)
+    end
+  end
 end

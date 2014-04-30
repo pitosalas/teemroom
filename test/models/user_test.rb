@@ -3,7 +3,7 @@ require 'pry'
 
 class UserTest < ActiveSupport::TestCase
 
-  describe "Null Test" do
+  describe User do
     it "works" do
       1.must_equal 1
     end

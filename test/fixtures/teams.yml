@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+test:
+  name: "Test Team"
 
-two:
-  name: MyString
+fake:
+  name: "Fake Team"
