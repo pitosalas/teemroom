@@ -26,33 +26,22 @@ class AssessmentsController < ApplicationController
       ass.assessment = params.fetch("user-#{m.id}")
       ass.save!
     end
-    redirect_to_if(params[:commit] == "Cancel", (command == "Done"))
-    rerender_if_save (params[:commit]) and return
+    redirect_to_if("cancel", (params[:commit] == "Cancel")) and return
+    redirect_to_if("thank_you", (params[:commit] == "Done")) and return
+    if params[:commit] == "Save"
+      create_assessment_page team, team.members
+      render :form
+      return
+    end
   end
 
   private
-
-  def rerender_if_save(command)
-    if command == "Save"
-      create_assessment_page
-      render :form
-      return true
-    end
-    return false
-  end
 
   def check_form_preconditions team, team_members
     redirect_to(pages_path("login_first")) and return true unless logged_in? && current_user.id == params[:user].to_i
     redirect_to(pages_path("not_ready_yet")) and return true if team_members.nil?
     redirect_to(pages_path("not_assessing_yet")) and return true unless team.post_assessments_mode?
     return false    
-  end
-
-  def redirect_if_not_logged_in
-    unless logged_in? && current_user.id == params[:user].to_i
-      redirect_to(pages_path("login_first"))
-      return
-    end
   end
 
   def redirect_to_if(red_page, predicate)

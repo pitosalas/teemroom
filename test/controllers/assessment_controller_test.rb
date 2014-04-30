@@ -50,5 +50,13 @@ describe AssessmentsController do
         assert_redirected_to pages_path('cancel')
       end
     end
+    it "redirects to cancel if Cancel button pressed" do
+      post(:submit, { 'user' => @u1_assessing_team, "commit" => "Cancel", "user-12" => 2, "user-13" => 2}, { 'user_id' => @u1_assessing_team.id})
+      assert_redirected_to pages_path('cancel')
+    end
+    it "re-renders form if Save button pressed" do
+      post(:submit, { 'user' => @u1_assessing_team, "commit" => "Save", "user-12" => 2, "user-13" => 2}, { 'user_id' => @u1_assessing_team.id})
+      assert_template "form"
+    end
   end
 end
