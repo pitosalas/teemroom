@@ -26,7 +26,6 @@ class AssessmentsController < ApplicationController
       ass.assessment = params.fetch("user-#{m.id}")
       ass.save!
     end
-    redirect_to_if("cancel", (params[:commit] == "Cancel")) and return
     redirect_to_if("thank_you", (params[:commit] == "Done")) and return
     if params[:commit] == "Save"
       create_assessment_page team, team.members
