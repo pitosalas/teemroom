@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 	def create
 		user = User.from_omniauth(env["omniauth.auth"])
     set_logged_in_userid(user.id)
+    puts "* * * #{user.to_yaml}"
 	end
 
   def test_login

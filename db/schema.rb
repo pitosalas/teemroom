@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140426204006) do
     t.string   "uid"
     t.string   "name"
     t.string   "nickname"
+    t.string   "email"
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"

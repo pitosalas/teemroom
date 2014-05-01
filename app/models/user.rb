@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :received_assessments, class_name: "Assessment", foreign_key: "assessee_id"
 
 	def self.from_omniauth(auth)
+    puts "* * * #{auth.to_yaml}"
 		where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
 	end
 
@@ -18,7 +19,8 @@ class User < ActiveRecord::Base
 			user.provider = auth["provider"]
 			user.uid = auth["uid"]
 			user.name = auth["info"]["name"]
-			user.nickname = auth["info"]["nickname"]
-		end
+			user.nickname = auth["info"]["nickname"] if auth["provider"] == "twitter"
+			user.email = auth["info"]["email"] if auth["provider"] == "google_oauth2"
+ 		end
 	end
 end
