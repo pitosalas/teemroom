@@ -26,3 +26,4 @@ if Team.count == 0
   end
 else
   puts "Attempting to run seeds.rb twice. Ignored."
+end
