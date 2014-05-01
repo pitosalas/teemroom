@@ -12,8 +12,15 @@
   	<%= yield :head %>
 
 	</head>
-	<body>
-		<%= content_for?(:content) ? yield(:content) : yield %>
+	<body class="teams">
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+				   <a class="navbar-brand" href="#">Teamosaurus.com</a>
+				  </div>
+				</div>
+			</div>
+			<%= content_for?(:content) ? yield(:content) : yield %>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	</body>
 </html>

@@ -29,7 +29,7 @@ class AssessmentsController < ApplicationController
     redirect_to_if("cancel", (params[:commit] == "Cancel")) and return
     redirect_to_if("thank_you", (params[:commit] == "Done")) and return
     if params[:commit] == "Save"
-      create_assessment_page team, team.members
+      create_assessment_page team, get_team_members(team)
       render :form
       return
     end
