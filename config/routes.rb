@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'assess/:user' => 'assessments#form', as: :assess
   post 'submit/:user' => 'assessments#submit', as: :submit_assess
   get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
   get 'test/:nickname', to: 'sessions#test_login'
   get 'pages/:page_name' => 'pages#show', as: :pages
 
