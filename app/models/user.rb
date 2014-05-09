@@ -41,6 +41,15 @@ class User < ActiveRecord::Base
     given_assessments.where("assessments.assessment IS NOT NULL")
   end
 
+  def valid_received_assessments
+    Assessment.where("assessments.assessment IS NOT NULL", assessee: self)
+  end
+
+  def non_self_received_assessments
+    valid_received_assessments.where.not(assessee: self)
+  end
+
+
   def required_assessments_count
     team ? team.members_count : "n/a"
   end
@@ -59,7 +68,7 @@ class User < ActiveRecord::Base
 
   def stats
     if assessments_complete?
-      "self: #{self_assessment.average(:assessment)}, team: #{non_self_assessments.average(:assessment)}"
+      "self: #{self_assessment.average(:assessment)}, team: #{non_self_received_assessments.average(:assessment)}"
     end
   end
 
