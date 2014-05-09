@@ -3,9 +3,9 @@
 <% 10.times do |n| %>
   <% name = Faker::Name.name; id = name.parameterize %>
   user<%= n %>:
-    id: <%= n %>
     provider: test
     nickname: id
     uid: 0
+    team: test
     name: <%= name %>
 <% end %>

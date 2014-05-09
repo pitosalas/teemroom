@@ -1,0 +1,21 @@
+<%= form_for(@deleteme) do |f| %>
+  <% if @deleteme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deleteme.errors.count, "error") %> prohibited this deleteme from being saved:</h2>
+
+      <ul>
+      <% @deleteme.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :a %><br>
+    <%= f.text_field :a %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

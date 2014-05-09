@@ -23,4 +23,33 @@ class User < ActiveRecord::Base
 			user.email = auth["info"]["email"] if auth["provider"] == "google_oauth2"
  		end
 	end
+
+  def admin?
+    name == "Pito Salas"
+  end
+
+  def assessments_complete?
+    required_assessments_count == valid_assessments_count
+  end
+
+  def valid_assessments_count
+    valid_assessments.count
+  end
+
+  def valid_assessments
+    given_assessments.where("assessments.assessment IS NOT NULL")
+  end
+
+  def required_assessments_count
+    team ? team.members_count : "n/a"
+  end
+
+  def self_assessment?
+    valid_assessments.map(&:assessee).include? self
+  end
+
+  def team_name
+    team ? team.name : "Not on a team"
+  end
+
 end

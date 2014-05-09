@@ -55,7 +55,7 @@ describe AssessmentsController do
       assert_redirected_to pages_path('cancel')
     end
     it "re-renders form if Save button pressed" do
-      post(:submit, { 'user' => @u1_assessing_team, "commit" => "Save", "user-12" => 2, "user-13" => 2}, { 'user_id' => @u1_assessing_team.id})
+      post(:submit, { 'user' => @u1_assessing_team, "commit" => "Save", "user-#{@u1_assessing_team.id}" => 2, "user-#{@u2_assessing_team.id}" => 2}, { 'user_id' => @u1_assessing_team.id})
       assert_template "form"
     end
   end

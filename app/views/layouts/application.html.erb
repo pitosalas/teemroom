@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <title>Teamosaurus.com</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
+  <head>
+    <title>Teamosaurus.com</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	  <script src="https://code.jquery.com/jquery.js"></script>
-  	<%= yield :head %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <%= yield :head %>
 
-	</head>
-	<body class="teams">
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-				   <a class="navbar-brand" href="#">Teamosaurus.com</a>
-				  </div>
-				</div>
-			</div>
-			<%= content_for?(:content) ? yield(:content) : yield %>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	</body>
+  </head>
+  <body class="teams">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="<%= root_path %>">Teamosaurus.com</a>
+        </div>
+        <p class="navbar-text navbar-right">
+          <% if logged_in? %>
+            Logged in as: <a href="#" class="navbar-link"> <%= current_user.name %></a>
+            <%= "[admin]" if current_user.admin? %>
+          <% else %>
+            <a href="#">Log in</a>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <%= render partial: "shared/flash_messages", flash: flash %>
+    <%= content_for?(:content) ? yield(:content) : yield %>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  </body>
 </html>

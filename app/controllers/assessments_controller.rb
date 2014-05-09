@@ -23,7 +23,7 @@ class AssessmentsController < ApplicationController
     team = current_user.team
     team.members.each do |m|
       ass = Assessment.find_or_create_by!(assessor: current_user, assessee: m)
-      ass.assessment = params.fetch("user-#{m.id}")
+      ass.assessment = params.fetch("user-#{m.id}")rescue binding.pry
       ass.save!
     end
     redirect_to_if("thank_you", (params[:commit] == "Done")) and return
@@ -39,7 +39,7 @@ class AssessmentsController < ApplicationController
   def check_form_preconditions team, team_members
     redirect_to(pages_path("login_first")) and return true unless logged_in? && current_user.id == params[:user].to_i
     redirect_to(pages_path("not_ready_yet")) and return true if team_members.nil?
-    redirect_to(pages_path("not_assessing_yet")) and return true unless team.post_assessments_mode?
+    redirect_to(pages_path("not_assessing_yet")) and return true unless team.mode?(:post_assessments)
     return false    
   end
 

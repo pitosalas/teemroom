@@ -20,6 +20,17 @@ a.navbar-brand {
   color: #F7ECF4;
 }
 
+.teams .navbar-inverse .navbar-text {
+  margin-top: 9px;
+  margin-bottom: 5px;
+  font-size: smaller;
+  color: #F7ECF4;
+}
+
+.teams .navbar-inverse .navbar-link {
+  color: #F7ECF4;
+}
+
 body {
   padding-top: 30px;
 }

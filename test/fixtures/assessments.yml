@@ -1,9 +1,35 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-a0:
-  assessor_id: 0
-  assessee_id: 0
+# For user 1, a self assessment plus a complete set of other assessments
+au11:
+  assessor: user1
+  assessee: user1
+  assessment: 1
 
-a1:
-  assessor_id: 2
-  assessee_id: 3
+<% (2..10).each do |u| %>
+au1<%= u%>:
+  assessor: user1
+  assessee: user<%= u%>
+  assessment: 1
+<% end %>
+
+# For user 2, a self assessment and an incomplete set of assessments
+au22:
+  assessor: user2
+  assessee: user2
+  assessment: 1
+
+<% (3..6).each do |u| %>
+au2<%= u%>:
+  assessor: user2
+  assessee: user<%= u%>
+  assessment: 1
+<% end %>
+
+# For user 3, an incomplete set of assessments, without a self assessment
+<% (5..9).each do |u| %>
+au3<%= u%>:
+  assessor: user3
+  assessee: user<%= u%>
+  assessment: 1
+<% end %>

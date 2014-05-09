@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :deletemes
+
   mount RailsAdmin::Engine => '/xyzzy', as: 'rails_admin'
   
   root 'sessions#home'
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'test/:nickname', to: 'sessions#test_login'
   get 'pages/:page_name' => 'pages#show', as: :pages
+
+  resources :users, only: [:show, :index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
