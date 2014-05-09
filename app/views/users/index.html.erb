@@ -9,6 +9,7 @@
         <th>Self</th>
         <th>Submitted</th>
         <th>Required</th>
+        <th>Summary</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
           <td><%= user.self_assessment? %></td>
           <td><%= user.valid_assessments_count %></td>
           <td><%= user.required_assessments_count %></td>
+          <td><%= user.stats %></td>
         </tr>
       <% end %>
     </tbody>

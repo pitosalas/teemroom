@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   belongs_to :team
 
   has_many :given_assessments, class_name: "Assessment", foreign_key: "assessor_id"
@@ -45,7 +46,21 @@ class User < ActiveRecord::Base
   end
 
   def self_assessment?
-    valid_assessments.map(&:assessee).include? self
+    self_assessment.length != 0
+  end
+
+  def self_assessment
+    valid_assessments.where(assessee: self)
+  end
+
+  def non_self_assessments
+    valid_assessments.where.not(assessee: self)
+  end
+
+  def stats
+    if assessments_complete?
+      "self: #{self_assessment.average(:assessment)}, team: #{non_self_assessments.average(:assessment)}"
+    end
   end
 
   def team_name
