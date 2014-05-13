@@ -1,0 +1,24 @@
+<h4>Assessment Grid</h4>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Assessment <%= @user.name %> received from</th>
+      <th>Assessment <%= @user.name %> gave to</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_stats.team_peers.each do |peer| %>
+      <tr>
+        <td><%= peer.name %></td>
+        <td><%= @user_stats.assessment_received_from(peer)  %> </td>
+        <td><%= @user_stats.assessment_given_to(peer) %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>Average</td>
+      <td><%= @user_stats.average_assessment_received %></td>
+      <td><%= @user_stats.average_assessment_given %></td>
+    </tr>
+  </tbody>
+</table>

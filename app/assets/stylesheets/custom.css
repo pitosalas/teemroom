@@ -32,5 +32,13 @@ a.navbar-brand {
 }
 
 body {
-  padding-top: 30px;
+  padding-top: 35px;
 }
+
+.teams h4 {
+  margin-top: 20px;
+  margin-bottom: 22px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #B62222;
+}
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426204006) do
+ActiveRecord::Schema.define(version: 20140513163244) do
 
   create_table "assessments", force: true do |t|
     t.integer  "assessor_id"
@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 20140426204006) do
 
   create_table "teams", force: true do |t|
     t.string   "name"
-    t.integer  "mode",       default: 0
+    t.integer  "mode",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "project_name"
   end
 
   create_table "users", force: true do |t|

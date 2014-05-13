@@ -76,4 +76,9 @@ class User < ActiveRecord::Base
     team ? team.name : "Not on a team"
   end
 
+  def project_name
+    team ? team.project_name : "No project"
+  end
+
+
 end
