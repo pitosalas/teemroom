@@ -1,23 +1,25 @@
-<div class="row">
-  <div class="col-md-8">
-    <table class="table table-condensed">
-      <thead>
-        <th>Facts and figures</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Team</td>
-          <td><%= @user_stats.team_name %></td>
-        </tr>
-        <tr>
-          <td>Product</td>
-          <td><%= @user_stats.project_name%> </td>
-        </tr>
-        <tr>
-          <td>Self Assessment</td>
-          <td><%= @user.self_assessment.average(:assessment) %>
-        </td>
-      </tbody>
-    </table>
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-condensed">
+        <thead>
+          <th>Facts and figures</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Team</td>
+            <td><%= @user_stats.team_name %></td>
+          </tr>
+          <tr>
+            <td>Product</td>
+            <td><%= @user_stats.project_name%> </td>
+          </tr>
+          <tr>
+            <td>Self Assessment</td>
+            <td><%= @user.self_assessment.average(:assessment) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

@@ -16,8 +16,8 @@
       <% @users.each do |user| %>
         <tr class=<%= user_row_class(user)%> >
           <td><span class="<%= user_row_icon(user) %>"</span></td>
+          <td><%= link_to user.name, user_path(user) %>
           <td><%= user.team_name %></td>
-          <td><%= user.name %></td>
           <td><%= user.self_assessment? %></td>
           <td><%= user.valid_assessments_count %></td>
           <td><%= user.required_assessments_count %></td>

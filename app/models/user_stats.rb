@@ -43,4 +43,17 @@ class UserStats
     avg = @user.received_assessments.where.not(assessor: @user).average(:assessment)
     avg.nil? ? "n/a" : avg
   end
+
+  def self_assessment
+    @user.self_assessment.average(:assessment)
+  end
+
+  def self_assessment_of(peer)
+    number_or_noneyet(peer.self_assessment.average(:assessment))
+  end
+
+  def number_or_noneyet(number)
+    number.nil? ? "none yet" : number
+  end
+
 end

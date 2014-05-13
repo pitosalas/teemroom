@@ -2,23 +2,29 @@
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th>Member</th>
+      <th>Peer</th>
+      <th><%= @user.name %>'s self assessment</th>
       <th>Assessment <%= @user.name %> received from</th>
       <th>Assessment <%= @user.name %> gave to</th>
+      <th>Peer's self-assessment</th>
     </tr>
   </thead>
   <tbody>
     <% @user_stats.team_peers.each do |peer| %>
       <tr>
         <td><%= peer.name %></td>
+        <td><%= @user_stats.self_assessment %>
         <td><%= @user_stats.assessment_received_from(peer)  %> </td>
         <td><%= @user_stats.assessment_given_to(peer) %></td>
+        <td><%= @user_stats.self_assessment_of(peer) %></td>
       </tr>
     <% end %>
     <tr>
       <td>Average</td>
+      <td>-</td>
       <td><%= @user_stats.average_assessment_received %></td>
       <td><%= @user_stats.average_assessment_given %></td>
+      <td>-</td>
     </tr>
   </tbody>
 </table>

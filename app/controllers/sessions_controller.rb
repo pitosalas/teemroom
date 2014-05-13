@@ -1,11 +1,15 @@
 class SessionsController < ApplicationController
 	def home
+    if current_user.admin?
+      redirect_to users_path
+    elsif logged_in?
+      redirect_to assess_path(current_user.id)
+    end
 	end
 
 	def create
 		user = User.from_omniauth(env["omniauth.auth"])
     set_logged_in_userid(user.id)
-    puts "* * * #{user.to_yaml}"
 	end
 
   def test_login
