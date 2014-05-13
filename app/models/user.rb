@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   has_many :received_assessments, class_name: "Assessment", foreign_key: "assessee_id"
 
 	def self.from_omniauth(auth)
-    puts "* * * #{auth.to_yaml}"
 		where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
 	end
 

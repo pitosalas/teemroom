@@ -1,13 +1,10 @@
 class SessionsController < ApplicationController
 	def home
     if !logged_in?
-      puts "*** not logged in"
       render :home
     elsif current_user.admin?
-      puts "*** admin home"
       redirect_to users_path
     elsif logged_in?
-      puts "*** logged in non-admin"
       redirect_to assess_path(current_user.id)
     end
 	end
